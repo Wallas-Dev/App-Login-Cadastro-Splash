@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.example.appbd.DAO.UserDAO;
 import com.example.appbd.model.User;
 
-public class MainActivity extends AppCompatActivity {
+public class Login extends AppCompatActivity {
     TextView edtEmail;
     TextView edtSenha;
     Button btnEntrar;
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         edtEmail = findViewById(R.id.txtEmail);
         edtSenha = findViewById(R.id.txtSenha);
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         directCad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it = new Intent(MainActivity.this, Cadastro.class);
+                Intent it = new Intent(Login.this, Cadastro.class);
                 startActivity(it);
             }
         });
@@ -46,10 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
                 UserDAO dao = new UserDAO(getApplicationContext(), new User(edtEmail.getText().toString(), "", edtSenha.getText().toString()));
                 if (dao.VerficarEmaileSenha()){
-                    Intent it = new Intent(MainActivity.this, Principal.class);
+                    Intent it = new Intent(Login.this, Principal.class);
                     startActivity(it);
                 }else {
-                    Toast.makeText(MainActivity.this, "Dados Incorretos", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "Dados Incorretos", Toast.LENGTH_SHORT).show();
                 }
             }
         });

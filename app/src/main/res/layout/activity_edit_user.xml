@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Cadastro">
+    tools:context=".editUser">
 
     <TextView
         android:id="@+id/edtNameCod"
@@ -48,7 +48,7 @@
         android:id="@+id/btnEditUser"
         android:layout_width="121dp"
         android:layout_height="53dp"
-        android:text="Cadastrar"
+        android:text="Editar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -25,10 +25,10 @@ public class Cadastro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
-        email = findViewById(R.id.emailAddress);
-        name = findViewById(R.id.name);
-        senha = findViewById(R.id.password);
-        btnCad = findViewById(R.id.btnCad);
+        email = findViewById(R.id.editEmailAddress);
+        name = findViewById(R.id.editName);
+        senha = findViewById(R.id.editPassword);
+        btnCad = findViewById(R.id.btnEditUser);
 
         btnCad.setOnClickListener(new View.OnClickListener() {
             @Override
