@@ -1,11 +1,15 @@
 package com.example.appbd;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.appbd.DAO.UserDAO;
 import com.example.appbd.model.User;
+import com.example.appbd.R;
 
 public class Principal extends AppCompatActivity {
     TextView txtEmail;
@@ -76,6 +81,25 @@ public class Principal extends AppCompatActivity {
                 startActivity(it);
             }
         });
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+    public String convertID(int id){
+        return getResources().getResourceEntryName(id);
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if("config".equals(convertID(R.id.config))){
+            Toast.makeText(this, "1", Toast.LENGTH_SHORT).show();
+            Intent it = new Intent(this, userList.class);
+            startActivity(it);
+        }
+        return true;
     }
 }

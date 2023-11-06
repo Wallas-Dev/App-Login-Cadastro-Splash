@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.appbd.helper.DBhelper;
 import com.example.appbd.model.User;
 
+import java.util.ArrayList;
+
 public class UserDAO {
 
     private User user;
@@ -88,6 +90,37 @@ public class UserDAO {
         this.user.setNome(c.getString(2));
 
         return this.user;
+    }
 
+    public Cursor listarUsers(){
+
+        SQLiteDatabase dbLite = this.db.getReadableDatabase();
+
+        String sql = "SELECT email as _id, nome FROM user;";
+        Cursor c = dbLite.rawQuery(sql,null);
+
+        if(c != null){
+            c.moveToFirst();
+        }
+        return c;
+    }
+
+
+    public ArrayList<User> listarUsersArray(){
+
+        ArrayList<User> list = new ArrayList<>();
+
+        Cursor c = this.listarUsers();
+
+        while (!c.isAfterLast()){
+            User u = new User(
+                    c.getString(0),
+                    c.getString(2),
+                    c.getString(1)
+            );
+            list.add(u);
+        }
+
+        return list;
     }
 }

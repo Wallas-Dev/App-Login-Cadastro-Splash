@@ -8,11 +8,14 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="VALLAS"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppBD"
         tools:targetApi="31">
+        <activity
+            android:name=".userList"
+            android:exported="false" />
         <activity
             android:name=".editUser"
             android:exported="false" />
